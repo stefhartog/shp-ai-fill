@@ -1,0 +1,2 @@
+# Keep the ComfyUI node byte-identical (its SHA-256 is checked by tests).
+comfyui/custom_nodes/** -text

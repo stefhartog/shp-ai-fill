@@ -1,0 +1,28 @@
+[project]
+name = "shp-ai-fill"
+version = "0.1.0"
+description = "SHP AI Fill: local Crop & Expand and Patch Fill through your own ComfyUI"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "numpy>=2.5.4",
+    "pillow>=13.0.0",
+    "opencv-contrib-python>=4.10",
+]
+
+[project.scripts]
+shp-photocraft-crop = "shp_ai_fill.server:main"
+shpcrop = "shp_ai_fill.server:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/shp_ai_fill"]
+
+[tool.hatch.build.targets.sdist.force-include]
+"comfyui" = "comfyui"
+
+[tool.uv]
+required-environments = ["sys_platform == 'linux'", "sys_platform == 'win32'"]
